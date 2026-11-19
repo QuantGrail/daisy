@@ -1,0 +1,12 @@
+{
+  "server-contacts.ambiguous": "编号开头 {prefix} 对得上不止一位联系人：多写几个字符，或写完整的编号",
+  "server-contacts.cardAndFile": "card 和 cardFile 只给一个",
+  "server-contacts.cardMissing": "要给名片：card（文本）或 cardFile（文件）",
+  "server-contacts.cardOlder": "这张名片（{made} 生成）比通讯录里的（{kept}）旧，不能替换：请对方重新导出",
+  "server-contacts.exists": "{name}（{id}）已经在通讯录里。确认要用这张名片替换时，加 update 重试",
+  "server-contacts.existsChanged": "{name}（{id}）已经在通讯录里。新名片有变化：{fields}。确认要用这张名片替换时，加 update 重试",
+  "server-contacts.idMismatch": "名片的编号 {id} 和你核对过的编号对不上：不要导入，和对方重新确认",
+  "server-contacts.notFound": "通讯录里没有这个编号的联系人",
+  "server-contacts.self": "这是这个 {product} 自己的名片：不能把自己加进通讯录",
+  "server-contacts.verify": "请和对方当面或电话核对编号（至少前 {chars} 个字符）：名片只证明“这段内容是这把钥匙的主人发的”，不证明这把钥匙是谁的"
+}

@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "Daisy",
+    "platforms": ["web"],
+    "web": {
+      "bundler": "metro",
+      "name": "Daisy",
+      "shortName": "Daisy",
+      "lang": "zh-CN"
+    }
+  }
+}

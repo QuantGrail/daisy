@@ -1,0 +1,145 @@
+{
+  "$comment": "P6-05 (ADR-155): every place Daisy's code (comments aside) still uses the project's old name, and why. Read by tests/no-harbor-names.test.ts: an occurrence no entry covers fails, and so does an entry that covers nothing. `files` is a glob (or a list), `re` a regular expression matched against the code of one line; an occurrence counts as covered when a match spans it. Keep entries narrow: a new use needs a reason old data, old sessions or old installs give.",
+  "entries": [
+    {
+      "files": "**",
+      "re": "Harbor 注入",
+      "why": "the injection mark: still written as it is (an external boot core matches it, D-43); readers accept it and 「Daisy 注入」 (ADR-154)"
+    },
+    {
+      "files": "tests/no-harbor-names.test.ts",
+      "re": "[Hh]arbor\\w*",
+      "why": "the guard itself: the name it looks for and its self-test samples"
+    },
+    {
+      "files": "tests/fixtures/prompt-legacy-*.json",
+      "re": "[Hh]arbor\\w*",
+      "why": "a snapshot of what the model was told at an old commit: stored data from before the rename, compared as it was"
+    },
+
+    {
+      "files": ["packages/contracts/src/env.ts", "packages/daisy/src/turns/shell.ts"],
+      "re": "\"HARBOR_\"|/\\^HARBOR_/",
+      "why": "old environment variable names: HARBOR_X is still read (with a warning) when DAISY_X is not set, and never passed on to commands (ADR-153)"
+    },
+    {
+      "files": "apps/app/app.config.js",
+      "re": "HARBOR_BASE_PATH",
+      "why": "the web build's old sub-path variable, still read with a warning (ADR-153)"
+    },
+    {
+      "files": ["packages/daisy/src/daemon.ts", "packages/daisy/src/platform/autostart.ts", "tests/access-faces.test.ts", "tests/paths.test.ts", "tests/storage.test.ts"],
+      "re": "HARBOR_DATA",
+      "why": "the old data directory variable: ignored with a warning (P1-04), so it is named to warn about it and to keep it out of the default"
+    },
+    {
+      "files": ["tests/env-rename.test.ts", "tests/i18n-contracts.test.ts"],
+      "re": "HARBOR_\\w*|\"harbor/old-session\"|harbor-worktrees|agent[-_]harbor|harbor\\.[\\w.:]*|daisy\\.sidebar\\.harbor|old harbor-worktrees",
+      "why": "the tests of the renamed environment variables, paths, worktrees and browser storage keys: the old names must still work (ADR-153)"
+    },
+    {
+      "files": "tests/start-settings.test.ts",
+      "re": "\\(DAISY\\|HARBOR\\)_|HARBOR_CODEX_BIN",
+      "why": "start settings: an old HARBOR_<ID>_BIN still wins over runner.json (ADR-153, ADR-156); the test clears both spellings"
+    },
+
+    {
+      "files": ["packages/contracts/src/agent-capabilities.ts", "packages/contracts/src/live.ts", "packages/client/src/index.ts", "packages/daisy/src/sessions/commands.ts", "packages/ui/src/rewind-copy.ts"],
+      "re": "\"harbor:?\"|harbor_bash|harbor_monitor|harborPending",
+      "why": "contract values before ADR-152 (capability `harbor`, source `harbor`, ids `harbor:<id>`, types harbor_bash / harbor_monitor, field harborPending): stored history and older servers / Runners still send them; read as the new values"
+    },
+    {
+      "files": "packages/ui/src/present.ts",
+      "re": "harborPending",
+      "why": "a session from an older server still has the field by its old name (ADR-152)"
+    },
+    {
+      "files": ["packages/contracts/locales/en/api.json", "packages/contracts/locales/zh-CN/api.json"],
+      "re": "`harbor:`",
+      "why": "the stop route's description: an id with the old prefix is still accepted (ADR-152)"
+    },
+    {
+      "files": ["tests/contract-value-aliases.test.ts", "tests/review-background.test.ts", "tests/rewind-files-fallback.test.ts", "tests/rewind-native.test.ts", "tests/native-append-rules.test.ts"],
+      "re": "[\"'`]harbor[\"':]|harbor:\\$\\{|`harbor`|\\\\\"harbor\\\\\"|harbor_bash|harbor_monitor|\\.?harborPending|\\(daisy\\|harbor\\)-restore",
+      "why": "tests that the contract values from before ADR-152 are still read as the new ones"
+    },
+
+    {
+      "files": ["packages/contracts/src/native-tools.ts", "packages/contracts/src/runner-job.ts", "packages/daisy/src/tools/daisy-tools.ts"],
+      "re": "\"harbor\"|harborTools",
+      "why": "Daisy's tools by their old names (MCP server `harbor`, the job field `harborTools`) for conversations started before ADR-154 and Runners from then"
+    },
+    {
+      "files": ["packages/daisy/src/turns/sidecar.ts", "packages/contracts/locales/*/server-turns.json"],
+      "re": "harbor_\\*|agent-harbor",
+      "why": "the refusal (its text now in the language packs, P6-23b) names the old tool prefix an older conversation knows (ADR-154); the old Runner state root stays denied (ADR-153)"
+    },
+    {
+      "files": ["tests/model-names.test.ts", "tests/prompt-i18n*.test.ts", "tests/codex-thread-tools.test.ts", "tests/prompt-layers*.test.ts", "tests/fixtures/agent.cjs"],
+      "re": "mcp__harbor__\\w*|harbor_\\w*|\"harbor\"|「harbor」|harborTools|HARBOR_NEEDS_FILES|Harbor (fork|rewind|系统|补送)|\\(Harbor 注入|/Harbor/|/harbor/i|Harbor 定时与后台|这些由 Harbor 保存|你是 Harbor 的|你现在是 Harbor 的|the Harbor marker",
+      "why": "tests (and the fake agent) of the model-facing names from before ADR-154: old conversations keep their tool names, old marks and markers are still recognised, the old prompt snapshot is converted"
+    },
+
+    {
+      "files": ["packages/contracts/src/ask-sidecar.ts", "tests/ask-native.test.ts"],
+      "re": "HARBOR_NEEDS_FILES|\\(\\?:DAISY\\|HARBOR\\)",
+      "why": "the 「只问」 answer marker before ADR-154: a conversation asked then may still answer with it"
+    },
+    {
+      "files": "packages/contracts/src/items.ts",
+      "re": "\\|Harbor\\)",
+      "why": "the system sender's old name (「Harbor 系统」): stored items carry it (ADR-154); the reader's pattern takes it"
+    },
+    {
+      "files": "tests/native-append-rules.test.ts",
+      "re": "\"Harbor 系统\"",
+      "why": "a stored row from before the rename, under the old system sender (ADR-154)"
+    },
+    {
+      "files": ["packages/contracts/src/title.ts", "tests/title-sync.test.ts"],
+      "re": "\" ?Harbor (fork|rewind) ?\"",
+      "why": "copy markers written before ADR-154: a copy made then still carries one"
+    },
+    {
+      "files": "packages/daisy/src/schedule/scheduler.ts",
+      "re": "\\(\\?:Daisy\\|Harbor\\)",
+      "why": "redelivery prefixes before ADR-154: a job queued then still says so"
+    },
+
+    {
+      "files": ["packages/daisy/src/turns/worktrees.ts"],
+      "re": "\"harbor-worktrees\"|\"harbor/\"",
+      "why": "worktrees and branches made under the old names are still found and used (ADR-153)"
+    },
+    {
+      "files": "packages/daisy/src/platform/paths.ts",
+      "re": "\"agent-harbor\"",
+      "why": "a Runner's old default state root, still used when it exists (ADR-153)"
+    },
+    {
+      "files": ["packages/ui/src/storage-keys.ts", "packages/ui/src/sidebar-collapse.tsx", "tests/drafts.test.ts"],
+      "re": "\"harbor\\.\"|\"harbor\"|harbor\\.draft\\.v1",
+      "why": "browser storage keys before ADR-153: moved to the new key on first read"
+    },
+    {
+      "files": ["packages/daisy/src/app/terminal-page/terminal.js", "packages/ui/src/terminal-frame.web.tsx"],
+      "re": "harbor-terminal-\\w+|\\(daisy\\|harbor\\)",
+      "why": "the terminal page's handshake: a page or a window of an older Daisy says harbor-terminal-* (ADR-153)"
+    },
+    {
+      "files": "packages/daisy/src/store/open.ts",
+      "re": "\"harbor\\.sqlite\"",
+      "why": "the old system's database is recognised and refused with what to do, never imported or touched (D-06)"
+    },
+    {
+      "files": "packages/daisy/src/store/schema.ts",
+      "re": "Harbor 的唤醒",
+      "why": "a comment inside schema step 1's SQL text, which is frozen: its hash is pinned (tests/schema-compat.test.ts V1_SHA256)"
+    },
+    {
+      "files": "tests/fixtures/*-core-driver.py",
+      "re": "harbor-codex|<harbor session id>",
+      "why": "a private plugin's test driver: the provider name the external server matches changes together with that server"
+    }
+  ]
+}

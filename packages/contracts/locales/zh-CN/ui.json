@@ -1,0 +1,19 @@
+{
+  "ui.app.bootSlow": "Daisy 迟迟没有回应，页面不再等待：请确认 Daisy 正在运行、网络通畅，然后刷新页面；已经配对的设备会直接进入。",
+  "ui.app.connecting": "正在连接…",
+  "ui.app.crashed": "页面出错了，没能显示出来。",
+  "ui.app.deviceGone": "这台设备的配对已失效（被吊销、太久没用，或主人重置了 PIN）：请向主人要一个新的配对码重新配对。",
+  "ui.app.reload": "重新加载",
+  "ui.common.loading": "正在读取…",
+  "ui.prompts.admin.noOrgCore": "没有启用提供组织启动核心的插件：会话没有组织层，这里不需要设置它的来源和期望哈希。",
+  "ui.prompts.my.locked": "所有会话都会收到安全规则；有组织提供的启动核心时，也会收到它。这两部分不能在这里修改（启动核心由提供它的组织修改，安全规则随 {product} 的代码更新）。下面是你能改的：给你名下所有私人会话的一段补充说明，和四个可选段的开关。常驻 Agent 在它自己的设置里改；每个会话还可以在「会话设置」里单独设置。",
+  "ui.settings.embed.body": "宿主可带入 task 上下文创建会话，再用 DaisyChat 嵌入任务详情页。接口和集成示例见项目 docs/EMBEDDING.md。",
+  "ui.settings.embed.title": "接入你的宿主应用",
+  "ui.settings.intro": "PIN、显示语言、harness 登录、工作目录、对外（agent、互认与授权）、谁能打开这个网页、开机自启和更新。",
+  "ui.settings.introHosted": "身份档、工作目录与 PIN。这台机器的入口和更新在 {host} 里管理。",
+  "ui.settings.language.chosen": "已选 {name}。",
+  "ui.settings.language.following": "跟随系统（现在是 {name}）。",
+  "ui.settings.language.scope": "网页、命令行和接口的提示都用它；新会话给 AI 的提示词也用它，已经在进行的会话保持原来的语言。",
+  "ui.settings.language.title": "显示语言",
+  "ui.settings.title": "设置"
+}

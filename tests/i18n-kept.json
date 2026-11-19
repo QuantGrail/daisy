@@ -1,0 +1,10 @@
+{
+  "packages/contracts/src/guide.ts": {
+    "lines": 4,
+    "why": "The inject mark 「Harbor 注入」 (written as it is in every language: the organisation's boot core keys on these words, ADR-154 §3) and 「Daisy 注入」 (accepted when reading); and defang's replacements: the Chinese layer markers' (a Chinese session's text must stay byte-identical to the pinned one) and the full-width bracket that disarms a bracketed marker of any language."
+  },
+  "packages/daisy/src/store/schema.ts": {
+    "lines": 24,
+    "why": "The SQL comments of schema step 1 (V1): part of the frozen V1 text whose SHA-256 (V1_SHA256) every existing database is checked against — never edited (store/schema.ts: append a MIGRATIONS step, never change step 1). Not shown to anyone; the later migrations' notes are English."
+  }
+}

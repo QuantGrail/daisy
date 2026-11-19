@@ -1,0 +1,15 @@
+{
+  "name": "@daisy-ai/session-tag",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "private": true,
+  "type": "module",
+  "description": "Test-only plugin (P4-13): tags a session's agent processes with DAISY_TEST_SESSION / DAISY_TEST_AGENT / DAISY_TEST_VIA, so the core's tests can tell processes apart with no other plugin installed; declares one notification kind of its own (P6-14).",
+  "exports": {
+    "./server": "./src/server.ts",
+    "./runner": "./src/runner.ts"
+  },
+  "peerDependencies": {
+    "@daisy-ai/daisy": "0.1.0"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "bootstrapped": [
+    "linux",
+    "darwin",
+    "win32"
+  ],
+  "linux": [
+    {
+      "test": "tests/prompt-off-chain.test.ts :: switch off: launch arguments, system-layer text and every turn's text of every kind of session are the base commit's",
+      "reason": "baseline: fixture comparison fails before the Daisy rebuild (also on macOS); prompt layers are reworked in P1-10"
+    }
+  ],
+  "darwin": [],
+  "win32": [
+    {
+      "test": "tests/claude-auth.test.ts :: *",
+      "reason": "Windows: the doctor test runs a #!/bin/sh fake claude, which Daisy refuses to run there (no shell scripts on Windows, ADR-141) (P5-05)"
+    },
+    {
+      "test": "tests/process-restart.test.ts :: *",
+      "reason": "Windows: was AutoUpdate.takePrepared (the git-checkout updater, deleted in P6-01, ADR-151); the remaining tests are not yet verified on Windows — re-check there, then drop this marker"
+    },
+    {
+      "test": "tests/prompt-off-chain.test.ts :: *",
+      "reason": "same baseline marker as on Linux (fixture comparison; read-only items need Bubblewrap)"
+    },
+    {
+      "test": "tests/rewind-files-fallback.test.ts :: *",
+      "reason": "Windows (run 44150290074, 4 of 14 fail, all test-side): one lists git objects with POSIX find; one makes files unreadable with chmod 000 (no such thing on Windows); two compare paths by the 8.3 short temp name while the product reports the long one (P5-05)"
+    },
+    {
+      "test": "tests/scheduler-review.test.ts :: *",
+      "reason": "Windows: read-only scheduler_bash needs Bubblewrap (Linux); the test calls process.getuid"
+    },
+    {
+      "test": "tests/scheduler-robust.test.ts :: *",
+      "reason": "Windows: tests signal process groups (process.kill(-pid)) — no groups there"
+    }
+  ]
+}

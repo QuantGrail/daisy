@@ -1,0 +1,4 @@
+# ~/.codex/config.toml — add this table (Codex reads MCP servers from here).
+[mcp_servers.daisy]
+command = "daisy-mcp"
+args = ["serve", "--agent-name", "我的 Codex"]

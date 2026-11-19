@@ -1,0 +1,21 @@
+{
+  "name": "@daisy-ai/contracts",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "author": "The Daisy Authors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuantGrail/daisy.git",
+    "directory": "packages/contracts"
+  },
+  "homepage": "https://github.com/QuantGrail/daisy#readme",
+  "bugs": {
+    "url": "https://github.com/QuantGrail/daisy/issues"
+  },
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": "./src/index.ts",
+  "dependencies": {
+    "zod": "^4.6.7"
+  }
+}

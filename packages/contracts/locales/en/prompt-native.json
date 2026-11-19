@@ -1,0 +1,18 @@
+{
+  "prompt-native.label.agents": "Find agents",
+  "prompt-native.label.bash": "Background command",
+  "prompt-native.label.call_agent": "Call an agent",
+  "prompt-native.label.call_result": "Check a call's result",
+  "prompt-native.label.cancel": "Cancel background work",
+  "prompt-native.label.cron": "Scheduled task",
+  "prompt-native.label.monitor": "Background monitor",
+  "prompt-native.label.output": "Read background output",
+  "prompt-native.label.say": "Talk to people",
+  "prompt-native.label.schedules": "List background work",
+  "prompt-native.label.wakeup": "Timed wake-up",
+  "prompt-native.listSep": ", ",
+  "prompt-native.missing.maybe": "[Daisy tools this conversation may lack] This conversation (a Codex thread) started on an older Daisy version and may not have these tools: {names}. Go by the tools you can actually call: if one is missing, say so plainly and do not pretend to call it; when the owner needs these functions, tell them to type /new to start a new conversation (the new one has them; this conversation is kept).",
+  "prompt-native.missing.sure": "[Daisy tools this conversation lacks] This conversation (a Codex thread) started without these tools, and they cannot be added later: {names}. Do not pretend to call them or say you have called them; when the owner needs these functions, tell them to type /new to start a new conversation (the new one has them; this conversation is kept).",
+  "prompt-native.notice.maybe": "This conversation started on an older Daisy version, which did not record the tools it had; it may not have: {names}. Codex cannot add tools to a conversation that has started; if the AI says it cannot find these tools, type /new to start a new conversation, which has them (this conversation is kept).",
+  "prompt-native.notice.sure": "This conversation started before Daisy had these tools: {names}. Codex cannot add tools to a conversation that has started, so the AI here cannot use them. When you need them, type /new to start a new conversation, which has them (this conversation is kept)."
+}

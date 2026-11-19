@@ -1,0 +1,49 @@
+# Daisy Relay as a systemd system service.
+#   sudo cp daisy-relay.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now daisy-relay
+# ExecStart: the path `command -v daisy-relay` prints (npm's global bin).
+
+[Unit]
+Description=Daisy Relay
+Documentation=https://github.com/QuantGrail/daisy/tree/main/packages/relay
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=daisy-relay
+Group=daisy-relay
+ExecStartPre=/usr/local/bin/daisy-relay --config /etc/daisy-relay/relay.json --check
+ExecStart=/usr/local/bin/daisy-relay --config /etc/daisy-relay/relay.json
+# SIGHUP re-reads the certificate files (after a renewal).
+ExecReload=/bin/kill -HUP $MAINPID
+# SIGTERM: Daisys are told "restarting" (1012) and reconnect.
+KillSignal=SIGTERM
+TimeoutStopSec=15
+Restart=on-failure
+RestartSec=2
+
+# Port 443 without root.
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+LimitNOFILE=65536
+
+# It reads its config and certificate and writes only to stdout (journald).
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=true
+RestrictRealtime=true
+LockPersonality=true
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=multi-user.target

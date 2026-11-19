@@ -1,0 +1,45 @@
+{
+  "name": "@daisy-ai/relay",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "author": "The Daisy Authors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuantGrail/daisy.git",
+    "directory": "packages/relay"
+  },
+  "homepage": "https://github.com/QuantGrail/daisy/tree/main/packages/relay#readme",
+  "bugs": {
+    "url": "https://github.com/QuantGrail/daisy/issues"
+  },
+  "private": true,
+  "description": "Daisy Relay — gives Daisys behind a router a fixed public address and passes callers' TLS connections through to them by SNI without terminating TLS (end-to-end encryption stays between caller and Daisy). Stores nothing, judges no access, no NAT traversal. Protocol: PROTOCOL.md.",
+  "type": "module",
+  "bin": {
+    "daisy-relay": "dist/daisy-relay.mjs"
+  },
+  "files": [
+    "dist/daisy-relay.mjs",
+    "PROTOCOL.md",
+    "README.md",
+    "relay.example.json",
+    "NOTICE"
+  ],
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "prepack": "node build.mjs"
+  },
+  "dependencies": {
+    "jose": "6.2.12",
+    "ws": "8.22.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

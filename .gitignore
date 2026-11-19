@@ -1,0 +1,11 @@
+node_modules/
+.data/
+.expo/
+dist/
+apps/app/dist/
+artifacts/
+*.log
+.env
+.env.*
+!.env.example
+*.tsbuildinfo

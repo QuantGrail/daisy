@@ -1,0 +1,13 @@
+{
+  "client.connections.exists": "已经有一个叫 {id} 的连接",
+  "client.connections.idMissing": "每个连接要有 id",
+  "client.connections.notFound": "没有叫 {id} 的连接",
+  "client.error.attachmentFailed": "附件读取失败",
+  "client.error.filesystemFailed": "目录操作失败",
+  "client.error.invalidResponse": "服务返回无效响应，请检查服务地址",
+  "client.error.noCredential": "credentials() 没有给出凭据",
+  "client.error.nodeTimeout": "执行节点响应超时，请检查连接后重试",
+  "client.error.timeout": "请求超时（{s} 秒没有响应）：服务可能正在重启或卡住，稍后重试",
+  "client.live.noPong": "连接无响应",
+  "client.live.offline": "网络已断开"
+}

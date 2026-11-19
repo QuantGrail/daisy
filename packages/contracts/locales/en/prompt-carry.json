@@ -1,0 +1,19 @@
+{
+  "prompt-carry.alreadyThere": "The new identity already has this conversation",
+  "prompt-carry.badId": "Invalid session ID",
+  "prompt-carry.extraLinks": "A file of the conversation has more than one hard link: refused",
+  "prompt-carry.noOldDir": "The old identity's config directory does not exist",
+  "prompt-carry.notFound": "This conversation's records are not in the old identity",
+  "prompt-carry.notOwned": "{what} does not belong to the Runner's user: refused",
+  "prompt-carry.notPlainDir": "{what} is not a plain directory (maybe a symbolic link): refused",
+  "prompt-carry.sameDir": "Same config directory",
+  "prompt-carry.sameRecords": "The new identity already has the same records",
+  "prompt-carry.tooBig": "This conversation's records to carry are {size} MiB, over the {limit} MiB limit: not carried to the new identity",
+  "prompt-carry.tooDeep": "The conversation's extra directories are nested too deep: refused",
+  "prompt-carry.transcriptLink": "The transcript is a symbolic link: refused",
+  "prompt-carry.transcriptNotFile": "The transcript is not a plain file or has more than one hard link: refused",
+  "prompt-carry.what.configDir": "The config directory",
+  "prompt-carry.what.dir": "Directory {name} ",
+  "prompt-carry.what.extraDir": "The conversation's extra directory",
+  "prompt-carry.what.projects": "The old identity's projects "
+}

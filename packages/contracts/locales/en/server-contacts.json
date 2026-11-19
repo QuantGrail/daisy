@@ -1,0 +1,12 @@
+{
+  "server-contacts.ambiguous": "More than one contact's identity number starts with {prefix}: type a few more characters, or the whole number",
+  "server-contacts.cardAndFile": "Give only one of card and cardFile",
+  "server-contacts.cardMissing": "Give a card: card (text) or cardFile (a file)",
+  "server-contacts.cardOlder": "This card (made {made}) is older than the one in the contacts ({kept}) and cannot replace it: ask the other person to export it again",
+  "server-contacts.exists": "{name} ({id}) is already in the contacts. To replace it with this card, retry with update",
+  "server-contacts.existsChanged": "{name} ({id}) is already in the contacts. The new card changes: {fields}. To replace it with this card, retry with update",
+  "server-contacts.idMismatch": "The card's identity number {id} does not match the number you checked: do not import it, check again with the other person",
+  "server-contacts.notFound": "No contact with this identity number",
+  "server-contacts.self": "This is this {product}'s own card: you cannot add yourself to the contacts",
+  "server-contacts.verify": "Check the identity number with the other person face to face or by phone (at least the first {chars} characters): a card proves only that “this was sent by the holder of this key”, not whose key it is"
+}

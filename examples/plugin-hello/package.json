@@ -1,0 +1,15 @@
+{
+  "name": "@daisy-ai/example-hello",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "private": true,
+  "type": "module",
+  "description": "A minimal Daisy plugin (example): tags every harness process of a session with HELLO_SESSION / HELLO_AGENT / HELLO_GREETING, and logs once when the control plane loads it.",
+  "exports": {
+    "./server": "./src/server.ts",
+    "./runner": "./src/runner.ts"
+  },
+  "peerDependencies": {
+    "@daisy-ai/daisy": "0.1.0"
+  }
+}

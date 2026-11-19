@@ -1,0 +1,110 @@
+name: ci
+
+# P0-01 (docs/DAISY-BUILD-PLAN.md): type check and behavior tests on Linux, macOS and Windows.
+on:
+  push:
+    branches: [daisy-next, main]
+  pull_request:
+    branches: [daisy-next, main]
+  workflow_dispatch:
+    inputs:
+      all_systems:
+        description: "Also run macOS and Windows"
+        type: boolean
+        default: false
+      windows_only:
+        description: "Run only Windows (e.g. to bootstrap or refresh its pending markers)"
+        type: boolean
+        default: false
+      run_marked:
+        description: "Also run files marked whole-file on that system (reports which markers can go; P5-05)"
+        type: boolean
+        default: false
+      test_files:
+        description: "Only these test files (comma-separated, CI_TEST_FILES)"
+        type: string
+        default: ""
+  # main: the public repository's only branch (pushes and contributors' pull requests);
+  # in the private repository main moves only at a release.
+  # Only Linux runs on push and gates a merge (D-37). macOS and Windows cost 10x / 2x
+  # Actions minutes: they run only when started by hand (workflow_dispatch, input `all_systems`).
+  # Work-package branches (p1-*, p2-*, ...) do not run on push: they are gated locally and
+  # Linux runs once when merged into daisy-next (minutes are metered). Start one by hand if needed.
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  markers:
+    name: markers only go down
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: compare with base
+        # Work-package branches compare with where they meet daisy-next; daisy-next and main with
+        # their previous head. A branch's first push (no previous head) has nothing to compare.
+        run: |
+          if [ -n "${{ github.event.pull_request.base.sha }}" ]; then base="${{ github.event.pull_request.base.sha }}"
+          elif [ "${{ github.ref_name }}" = "daisy-next" ] || [ "${{ github.ref_name }}" = "main" ]; then base="${{ github.event.before }}"
+          else base=$(git merge-base HEAD origin/daisy-next); fi
+          case "$base" in ""|0000000000000000000000000000000000000000) echo "no previous head: nothing to compare"; exit 0;; esac
+          node scripts/ci-test.mjs --shrink-check "$base"
+
+  test:
+    name: test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: ${{ matrix.os == 'windows-latest' && 120 || 40 }}
+    continue-on-error: ${{ matrix.os != 'ubuntu-latest' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ${{ fromJSON(inputs.windows_only && '["windows-latest"]' || (inputs.all_systems && '["ubuntu-latest","macos-latest","windows-latest"]' || '["ubuntu-latest"]')) }}
+    env:
+      # Many tests hang on Windows until their timeout; whole files are marked there (P5-05 clears them).
+      CI_TEST_TIMEOUT: ${{ matrix.os == 'windows-latest' && 60000 || 300000 }}
+      TZ: UTC
+      LANG: en_US.UTF-8
+      CI_RESULTS_OUT: ${{ github.workspace }}/ci-results.json
+      CI_RUN_MARKED: ${{ inputs.run_marked && '1' || '' }}
+      CI_TEST_FILES: ${{ inputs.test_files }}
+      CI_RAW_OUT: ${{ github.workspace }}/ci-raw.jsonl
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Linux sandbox tools (read-only execution needs Bubblewrap)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q bubblewrap
+          # Ubuntu 24.04 blocks unprivileged user namespaces by default; Bubblewrap needs them.
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
+      - run: npm ci --no-audit --no-fund
+      - run: npm run typecheck
+      - name: web export (the local web page must build)
+        if: runner.os == 'Linux'
+        run: npm run build:web
+      - name: the core names no plugin (P4-13; P6-00, ADR-150)
+        if: runner.os == 'Linux'
+        run: node scripts/check-core-names.mjs
+      - name: behavior tests
+        # Leaves time for the upload below when a run is cut off.
+        timeout-minutes: ${{ matrix.os == 'windows-latest' && 100 || 35 }}
+        run: node scripts/ci-test.mjs
+      - name: upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-results-${{ matrix.os }}
+          path: |
+            ci-results.json
+            ci-raw.jsonl
+          if-no-files-found: ignore

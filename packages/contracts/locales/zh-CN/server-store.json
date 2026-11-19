@@ -1,0 +1,18 @@
+{
+  "server-store.backupFailed": "升级数据库结构（第 {from} 版 → 第 {to} 版）之前的备份没有写成：{error}。没有升级，数据库没有改动。请检查 {backups} 所在磁盘的空间和权限，然后重新启动。",
+  "server-store.legacyDatabase": "数据目录 {dir} 里是旧版的数据库（{file}）。旧版的数据库不导入，{product} 也不会改动它。请用新的数据目录：设置 DAISY_DATA 指向一个新的空目录，或者不设（用系统惯例的默认位置），然后重新启动；旧目录可以留作只读存档。",
+  "server-store.lock.held": "这个数据目录（{dir}）已经有一个 {product} 在运行（进程号 {pid}，{at} 启动）。同一个数据目录同时只能运行一个 {product}：先停掉它（{command} stop 或结束进程 {pid}），或者用 DAISY_DATA 指定另一个数据目录。",
+  "server-store.lock.unavailable": "拿不到数据目录的锁 {file}：请确认没有别的 {product} 正在启动，然后重试。",
+  "server-store.notDaisy": "{file} 不是 {product} 的数据库（可能是旧版的数据库换了名字，或者别的程序的文件）。旧版的数据库不导入，{product} 也不会改动它。请用新的数据目录：设置 DAISY_DATA 指向一个新的空目录，或者不设（用默认位置），然后重新启动。",
+  "server-store.tooNew": "数据库 {file} 的结构是第 {from} 版，其中第 {need} 版的变更旧代码不能用；这一版 {product} 只认识到第 {target} 版。数据库没有改动。办法：换回新版本的 {product}；或者停掉 {product}，用 {backups} 里升级到第 {need} 版之前的备份（文件名里写着结构版本）替换 {name}，并删掉旁边的 {name}-wal、{name}-shm——备份之后的数据会丢失。",
+  "server-store.unopenable": "打不开数据库 {file}（{error}）。{product} 没有改动它。请确认它是 {product} 的数据库、没有被别的程序占用；如果是旧版的数据库，请用新的数据目录（设置 DAISY_DATA）。",
+  "server-store.unreadable": "读不了数据库 {file}（{error}）。{product} 没有改动它。请检查它的权限；如果是旧版的数据库，请用新的数据目录（设置 DAISY_DATA）。",
+  "server-store.updateBackupFailed": "更新前的数据库备份没有写成：{error}。没有更新。请检查 {backups} 所在磁盘的空间和权限。",
+  "server-store.upgrade.head": "数据库结构从第 {from} 版升到第 {to} 版失败，第 {step} 步（{note}）出错：{error}。",
+  "server-store.upgrade.newFailed": "{head}新建的数据库没能建好，请删掉 {file} 后重新启动，并把这条信息报告给维护者。",
+  "server-store.upgrade.restoreFailed": "{head}退回也失败了（{error}）。请停掉 {product}，用备份 {backup} 替换 {file}，并删掉旁边的 {name}-wal、{name}-shm 文件。{what}",
+  "server-store.upgrade.restored": "{head}事务没能完全回滚，已从升级前的备份恢复：数据库回到第 {from} 版（备份之后没有新数据）。{where}{what}",
+  "server-store.upgrade.rolledBack": "{head}已经退回：整个升级在一个事务里回滚，数据库仍是第 {from} 版，结构没有改动（这次升级的写入都已撤销）。{what}",
+  "server-store.upgrade.what": "{product} 不启动。办法：换回上一版 {product} 继续使用（自动更新时启动守卫会自动切回上一版），并把这条信息报告给维护者；问题修好之前不要反复重启。",
+  "server-store.upgrade.where": "升级前的备份在 {backup}。"
+}

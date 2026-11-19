@@ -1,0 +1,24 @@
+{
+  "name": "@daisy-ai/a2a-client",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "author": "The Daisy Authors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuantGrail/daisy.git",
+    "directory": "packages/a2a-client"
+  },
+  "homepage": "https://github.com/QuantGrail/daisy#readme",
+  "bugs": {
+    "url": "https://github.com/QuantGrail/daisy/issues"
+  },
+  "private": true,
+  "type": "module",
+  "description": "The A2A client and identity-card code shared by Daisy and the standalone A2A MCP (node:*, jose and the contracts only). Source only; bundled into @daisy-ai/a2a-mcp.",
+  "main": "src/index.ts",
+  "exports": "./src/index.ts",
+  "dependencies": {
+    "jose": "6.2.12",
+    "zod": "^4.6.7"
+  }
+}

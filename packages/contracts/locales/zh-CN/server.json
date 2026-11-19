@@ -1,0 +1,10 @@
+{
+  "server.approval.notFound": "审批不存在",
+  "server.approval.requestNeedsPin": "别人的调用请求要输入 PIN 才能批准或拒绝（5.11）：用 POST {path}（命令行 {command} request decide {id} always|once|reject）",
+  "server.events.reset": "这个序号接不上了（早于保留期内的事件，或比这里写过的最大序号还大）：先取快照（GET /api/events/snapshot），再从快照的 cursor 接着读",
+  "server.launchAudit.name": "启动提示词审计",
+  "server.list.separator": "、",
+  "server.pin.aiTurnsNeedPin": "还没有设置 PIN，{product} 不启动任何 AI 轮次。先设置 PIN：{command} pin set。",
+  "server.session.unavailable": "会话不可用",
+  "server.sidecar.noCalls": "只问支线是只读的：不能调用别的智能体"
+}

@@ -1,0 +1,44 @@
+{
+  "name": "@daisy-ai/a2a-mcp",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "author": "The Daisy Authors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuantGrail/daisy.git",
+    "directory": "packages/a2a-mcp"
+  },
+  "homepage": "https://github.com/QuantGrail/daisy/tree/main/packages/a2a-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/QuantGrail/daisy/issues"
+  },
+  "private": true,
+  "description": "Daisy MCP — a standalone A2A client as an MCP server (stdio) for harnesses that do not run Daisy: its own Ed25519 identity and address book; discover, call and query agents other Daisies open to you. Client only: nobody can call it.",
+  "type": "module",
+  "bin": {
+    "daisy-mcp": "dist/daisy-mcp.mjs"
+  },
+  "files": [
+    "dist/daisy-mcp.mjs",
+    "README.md",
+    "NOTICE"
+  ],
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "prepack": "node build.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "jose": "6.2.12",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

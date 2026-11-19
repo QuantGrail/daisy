@@ -1,0 +1,9 @@
+{
+  "prompt-title.code": "[code{lang}]",
+  "prompt-title.namer": "You are a naming assistant: as the user's message asks, output only one short name (one line) — no tools, no explanation, no quotes.",
+  "prompt-title.noReply": "(no text reply)",
+  "prompt-title.noText": "(no text)",
+  "prompt-title.rule.chinese": "3. The user of this conversation writes in Chinese: write the title in Chinese, 4 to 14 characters (keep proper nouns as written).",
+  "prompt-title.rule.english": "3. The user of this conversation writes in English: the title must be in English, at most 6 words; do not translate it into another language.",
+  "prompt-title.untitled": "New conversation"
+}

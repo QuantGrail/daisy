@@ -1,0 +1,19 @@
+{
+  "ui.app.bootSlow": "Daisy has not answered, so the page stopped waiting: check that Daisy is running and the network is up, then reload the page; a paired device goes straight in.",
+  "ui.app.connecting": "Connecting…",
+  "ui.app.crashed": "Something went wrong and the page could not be shown.",
+  "ui.app.deviceGone": "This device's pairing is no longer valid (revoked, unused for too long, or the owner reset the PIN): ask the owner for a new pairing code and pair again.",
+  "ui.app.reload": "Reload",
+  "ui.common.loading": "Loading…",
+  "ui.prompts.admin.noOrgCore": "No plugin that provides an organisation startup core is enabled: sessions have no organisation layer, so there is no source or expected hash to set here.",
+  "ui.prompts.my.locked": "Every session gets the safety rules, and the startup core too when an organisation provides one. Neither can be changed here: the startup core is changed by the organisation that provides it, the safety rules with {product}'s code. What you can change: a note for all your private sessions and the switches of the four optional sections. A resident agent is changed in its own settings; each session can also be set on its own in its session settings.",
+  "ui.settings.embed.body": "A host can create sessions with its task context and embed them in its task pages with DaisyChat. See docs/EMBEDDING.md in the project for the API and examples.",
+  "ui.settings.embed.title": "Embed in your host app",
+  "ui.settings.intro": "PIN, display language, harness sign-in, working folders, outside access (agents, contacts and grants), who can open this page, start at login and updates.",
+  "ui.settings.introHosted": "Profiles, working folders and the PIN. This machine's entry points and updates are managed in {host}.",
+  "ui.settings.language.chosen": "{name} is chosen.",
+  "ui.settings.language.following": "Following the system (now {name}).",
+  "ui.settings.language.scope": "The web page, the command line and the API's messages use it; so do the AI's prompts in new sessions — sessions already under way keep their language.",
+  "ui.settings.language.title": "Display language",
+  "ui.settings.title": "Settings"
+}

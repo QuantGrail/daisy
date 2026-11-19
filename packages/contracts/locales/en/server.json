@@ -1,0 +1,10 @@
+{
+  "server.approval.notFound": "No such approval",
+  "server.approval.requestNeedsPin": "Approving or rejecting someone else's call request needs the PIN (5.11): use POST {path} (command line: {command} request decide {id} always|once|reject)",
+  "server.events.reset": "This sequence number cannot be continued (it is older than the events kept, or larger than the largest written here): take a snapshot first (GET /api/events/snapshot), then read on from its cursor",
+  "server.launchAudit.name": "Launch prompt audit",
+  "server.list.separator": ", ",
+  "server.pin.aiTurnsNeedPin": "No PIN is set yet, so {product} starts no AI turn. Set a PIN first: {command} pin set.",
+  "server.session.unavailable": "The session is not available",
+  "server.sidecar.noCalls": "An ask-only side thread is read-only: it cannot call other agents"
+}

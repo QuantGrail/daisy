@@ -1,0 +1,23 @@
+{
+  "name": "@daisy-ai/daisy",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "author": "The Daisy Authors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuantGrail/daisy.git",
+    "directory": "packages/daisy"
+  },
+  "homepage": "https://github.com/QuantGrail/daisy#readme",
+  "bugs": {
+    "url": "https://github.com/QuantGrail/daisy/issues"
+  },
+  "private": true,
+  "type": "module",
+  "description": "The Daisy process (control plane + Runner, one process) and the `daisy` command. Runs from source with tsx; scripts/pack-daisy.ts builds the installable package.",
+  "main": "src/main.ts",
+  "exports": {
+    ".": "./src/main.ts",
+    "./plugin": "./src/plugins/api.ts"
+  }
+}

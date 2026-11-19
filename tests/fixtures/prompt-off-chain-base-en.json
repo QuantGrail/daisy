@@ -1,0 +1,216 @@
+{
+  "ordinary:claude": {
+    "argv": [
+      "-p",
+      "--verbose",
+      "--input-format",
+      "stream-json",
+      "--output-format",
+      "stream-json",
+      "--include-partial-messages",
+      "--forward-subagent-text",
+      "--replay-user-messages",
+      "--include-hook-events",
+      "--disallowed-tools",
+      "ScheduleWakeup,CronCreate,CronDelete,CronList",
+      "--allowedTools",
+      "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result",
+      "--permission-mode",
+      "manual",
+      "--permission-prompt-tool",
+      "stdio",
+      "--session-id",
+      "<UUID>"
+    ],
+    "initialize": {
+      "via": "initialize",
+      "text": "[Daisy timers and background work] When you need to continue later, check something periodically, or wait for a long command to finish, do not sleep, idle-wait or poll: wake yourself with mcp__daisy__wakeup (once) or mcp__daisy__cron (recurring), run commands in the background with mcp__daisy__bash (wakes you when it ends) or mcp__daisy__monitor (wakes you on new output), list them with mcp__daisy__schedules and cancel with mcp__daisy__cancel. Daisy keeps these: they still wake you after the Runner restarts or you go offline. Once they are started, you can end this turn.",
+      "sdkMcpServers": [
+        "daisy"
+      ],
+      "allowedTools": "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result"
+    },
+    "firstTurn": "第一条：看一下当前目录。\nOther sessions may be working in this workspace at the same time: coordinate before changing the same file; make independent changes in a separate Git worktree and put temporary files in TMPDIR; to change code in parallel, ask your owner to open a separate development session, which the task's lead merges."
+  },
+  "ordinary:codex": {
+    "argv": [
+      "app-server"
+    ],
+    "thread": {
+      "via": "thread/start",
+      "text": "",
+      "approvalPolicy": "on-request",
+      "approvalsReviewer": "user",
+      "sandbox": "workspace-write",
+      "dynamicTools": [
+        "daisy_wakeup",
+        "daisy_cron",
+        "daisy_bash",
+        "daisy_monitor",
+        "daisy_output",
+        "daisy_schedules",
+        "daisy_cancel",
+        "daisy_agents",
+        "daisy_call_agent",
+        "daisy_call_result"
+      ],
+      "developerInstructions": "[Daisy timers and background work] When you need to continue later, check something periodically, or wait for a long command to finish, do not sleep, idle-wait or poll: wake yourself with daisy_wakeup (once) or daisy_cron (recurring), run commands in the background with daisy_bash (wakes you when it ends) or daisy_monitor (wakes you on new output), list them with daisy_schedules and cancel with daisy_cancel. Daisy keeps these: they still wake you after the Runner restarts or you go offline. Once they are started, you can end this turn."
+    },
+    "firstTurn": "第一条：看一下当前目录。\nOther sessions may be working in this workspace at the same time: coordinate before changing the same file; make independent changes in a separate Git worktree and put temporary files in TMPDIR; to change code in parallel, ask your owner to open a separate development session, which the task's lead merges."
+  },
+  "second-turn:claude": {
+    "argv": [],
+    "initialize": [],
+    "turns": [
+      "第二条：再看一眼。\nOther sessions may be working in this workspace at the same time: coordinate before changing the same file; make independent changes in a separate Git worktree and put temporary files in TMPDIR; to change code in parallel, ask your owner to open a separate development session, which the task's lead merges."
+    ]
+  },
+  "second-turn:codex": {
+    "argv": [],
+    "thread": [],
+    "turns": [
+      "第二条：再看一眼。\nOther sessions may be working in this workspace at the same time: coordinate before changing the same file; make independent changes in a separate Git worktree and put temporary files in TMPDIR; to change code in parallel, ask your owner to open a separate development session, which the task's lead merges."
+    ]
+  },
+  "resumed:claude": {
+    "argv": [
+      [
+        "-p",
+        "--verbose",
+        "--input-format",
+        "stream-json",
+        "--output-format",
+        "stream-json",
+        "--include-partial-messages",
+        "--forward-subagent-text",
+        "--replay-user-messages",
+        "--include-hook-events",
+        "--disallowed-tools",
+        "ScheduleWakeup,CronCreate,CronDelete,CronList",
+        "--allowedTools",
+        "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result",
+        "--permission-mode",
+        "manual",
+        "--permission-prompt-tool",
+        "stdio",
+        "--resume",
+        "claude-native"
+      ]
+    ],
+    "initialize": [
+      {
+        "via": "initialize",
+        "text": "[Daisy timers and background work] When you need to continue later, check something periodically, or wait for a long command to finish, do not sleep, idle-wait or poll: wake yourself with mcp__daisy__wakeup (once) or mcp__daisy__cron (recurring), run commands in the background with mcp__daisy__bash (wakes you when it ends) or mcp__daisy__monitor (wakes you on new output), list them with mcp__daisy__schedules and cancel with mcp__daisy__cancel. Daisy keeps these: they still wake you after the Runner restarts or you go offline. Once they are started, you can end this turn.",
+        "sdkMcpServers": [
+          "daisy"
+        ],
+        "allowedTools": "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result"
+      }
+    ],
+    "turns": [
+      "第三条：接着来。\nOther sessions may be working in this workspace at the same time: coordinate before changing the same file; make independent changes in a separate Git worktree and put temporary files in TMPDIR; to change code in parallel, ask your owner to open a separate development session, which the task's lead merges."
+    ]
+  },
+  "resumed:codex": {
+    "argv": [
+      [
+        "app-server"
+      ]
+    ],
+    "thread": [
+      {
+        "via": "thread/resume",
+        "text": "",
+        "approvalPolicy": "on-request",
+        "approvalsReviewer": "user",
+        "sandbox": "workspace-write",
+        "excludeTurns": true,
+        "dynamicTools": [],
+        "developerInstructions": "[Daisy timers and background work] When you need to continue later, check something periodically, or wait for a long command to finish, do not sleep, idle-wait or poll: wake yourself with daisy_wakeup (once) or daisy_cron (recurring), run commands in the background with daisy_bash (wakes you when it ends) or daisy_monitor (wakes you on new output), list them with daisy_schedules and cancel with daisy_cancel. Daisy keeps these: they still wake you after the Runner restarts or you go offline. Once they are started, you can end this turn.",
+        "threadId": "codex-native"
+      }
+    ],
+    "turns": [
+      "第三条：接着来。\nOther sessions may be working in this workspace at the same time: coordinate before changing the same file; make independent changes in a separate Git worktree and put temporary files in TMPDIR; to change code in parallel, ask your owner to open a separate development session, which the task's lead merges."
+    ]
+  },
+  "isolated:claude": {
+    "argv": [
+      [
+        "-p",
+        "--verbose",
+        "--input-format",
+        "stream-json",
+        "--output-format",
+        "stream-json",
+        "--include-partial-messages",
+        "--forward-subagent-text",
+        "--replay-user-messages",
+        "--include-hook-events",
+        "--disallowed-tools",
+        "ScheduleWakeup,CronCreate,CronDelete,CronList",
+        "--allowedTools",
+        "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result",
+        "--permission-mode",
+        "manual",
+        "--permission-prompt-tool",
+        "stdio",
+        "--session-id",
+        "<UUID>"
+      ]
+    ],
+    "initialize": [
+      {
+        "via": "initialize",
+        "text": "[Daisy timers and background work] When you need to continue later, check something periodically, or wait for a long command to finish, do not sleep, idle-wait or poll: wake yourself with mcp__daisy__wakeup (once) or mcp__daisy__cron (recurring), run commands in the background with mcp__daisy__bash (wakes you when it ends) or mcp__daisy__monitor (wakes you on new output), list them with mcp__daisy__schedules and cancel with mcp__daisy__cancel. Daisy keeps these: they still wake you after the Runner restarts or you go offline. Once they are started, you can end this turn.",
+        "sdkMcpServers": [
+          "daisy"
+        ],
+        "allowedTools": "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result"
+      }
+    ],
+    "turns": [
+      "第一条：看一下当前目录。\nYou are on your own branch daisy/<UUID>, working directory <DIR>/.git/daisy-worktrees/<UUID>. Keep the deliverables and the evidence that they were verified: the task's lead reviews and merges them; do not merge or delete anything yourself."
+    ]
+  },
+  "isolated:codex": {
+    "argv": [
+      [
+        "app-server"
+      ]
+    ],
+    "thread": [
+      {
+        "via": "thread/start",
+        "text": "",
+        "approvalPolicy": "on-request",
+        "approvalsReviewer": "user",
+        "sandbox": "workspace-write",
+        "dynamicTools": [
+          "daisy_wakeup",
+          "daisy_cron",
+          "daisy_bash",
+          "daisy_monitor",
+          "daisy_output",
+          "daisy_schedules",
+          "daisy_cancel",
+          "daisy_agents",
+          "daisy_call_agent",
+          "daisy_call_result"
+        ],
+        "developerInstructions": "[Daisy timers and background work] When you need to continue later, check something periodically, or wait for a long command to finish, do not sleep, idle-wait or poll: wake yourself with daisy_wakeup (once) or daisy_cron (recurring), run commands in the background with daisy_bash (wakes you when it ends) or daisy_monitor (wakes you on new output), list them with daisy_schedules and cancel with daisy_cancel. Daisy keeps these: they still wake you after the Runner restarts or you go offline. Once they are started, you can end this turn."
+      }
+    ],
+    "turns": [
+      "第一条：看一下当前目录。\nYou are on your own branch daisy/<UUID>, working directory <DIR>/.git/daisy-worktrees/<UUID>. Keep the deliverables and the evidence that they were verified: the task's lead reviews and merges them; do not merge or delete anything yourself."
+    ]
+  },
+  "audit-items": {
+    "Sent-content audit {images,pageContextIncluded,role,sha256,systemPromptOverride,taskIncluded,terminalIncluded}": 8
+  },
+  "sync-fields": [
+    "blocked",
+    "ok",
+    "retiredIdentities"
+  ]
+}

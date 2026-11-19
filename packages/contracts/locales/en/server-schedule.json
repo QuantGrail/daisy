@@ -1,0 +1,19 @@
+{
+  "server-schedule.bg.canceled": "Canceled",
+  "server-schedule.bg.linesDropped": "({n, plural, one {# earlier line} other {# earlier lines}} left out)",
+  "server-schedule.bg.logCapped": "[{product}: the output is over {mb} MB; nothing more is written to the file]",
+  "server-schedule.bg.nodeFull": "This node already runs {n, plural, one {# background command / monitor} other {# background commands / monitors}} (at most {max} here): start this one after some finish",
+  "server-schedule.bg.runnerGone": "The Runner stopped",
+  "server-schedule.bg.runnerStopped": "The node's Runner stopped, and this background task ended with it (not rerun automatically)",
+  "server-schedule.bg.startFailed": "Failed to start: {error}",
+  "server-schedule.bg.timedOut": "Stopped after its time limit ({s, plural, one {# second} other {# seconds}})",
+  "server-schedule.callback.badItem": "The external callback item id \"{item}\" is not valid (starts with a letter or digit; only letters, digits, _, . and -; at most 64 characters)",
+  "server-schedule.callback.badKind": "The external callback kind \"{kind}\" is not valid (starts with a lowercase letter; only lowercase letters, digits, _ and -; at most 32 characters)",
+  "server-schedule.error.offline": "The session is offline",
+  "server-schedule.error.ownerOnly": "Only the session's owner can stop background tasks",
+  "server-schedule.error.taskGone": "No such background task (it may have finished)",
+  "server-schedule.error.taskGoneOrOffline": "No such background task (it may have finished, or the session went offline)",
+  "server-schedule.error.taskNotStoppable": "This background task cannot be stopped on its own (the agent does not support it); \"Go offline\" ends them all",
+  "server-schedule.error.timerNotStoppable": "A timer cannot be stopped here",
+  "server-schedule.stoppedByOwner": "The owner stopped it in \"Background\""
+}

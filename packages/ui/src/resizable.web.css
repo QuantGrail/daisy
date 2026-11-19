@@ -1,0 +1,41 @@
+/* Pane resize handles (resizable.web.tsx): an 8 px hit area centred on the
+   pane's border; a 2 px accent line on hover, focus and while dragging. */
+.daisy-resize {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  cursor: col-resize;
+  touch-action: none;
+  outline: none;
+  z-index: 1;
+}
+.daisy-resize::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3px;
+  width: 2px;
+  background: transparent;
+  transition: background-color 120ms ease;
+}
+.daisy-resize:hover::after {
+  background: color-mix(in srgb, var(--chat-accent, #4f46e5) 45%, transparent);
+  transition-delay: 80ms;
+}
+.daisy-resize:focus-visible::after,
+.daisy-resize.is-dragging::after {
+  background: var(--chat-accent, #4f46e5);
+  transition-delay: 0ms;
+}
+/* While dragging: the whole page shows col-resize and nothing gets selected
+   or reacts to hover. */
+html.daisy-resizing,
+html.daisy-resizing * {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+html.daisy-resizing iframe {
+  pointer-events: none;
+}

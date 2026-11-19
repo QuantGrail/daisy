@@ -1,0 +1,56 @@
+{
+  "name": "@daisy-ai/ui",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "author": "The Daisy Authors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuantGrail/daisy.git",
+    "directory": "packages/ui"
+  },
+  "homepage": "https://github.com/QuantGrail/daisy#readme",
+  "bugs": {
+    "url": "https://github.com/QuantGrail/daisy/issues"
+  },
+  "private": true,
+  "type": "module",
+  "main": "src/index.tsx",
+  "exports": "./src/index.tsx",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "expo-document-picker": "~57.0.3",
+    "expo-file-system": "~57.0.7",
+    "expo-sharing": "~57.0.22",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-webview": "*",
+    "react-native-svg": "15.15.4",
+    "react-dom": "^18.2.0 || 19.2.3"
+  },
+  "dependencies": {
+    "@daisy-ai/client": "*",
+    "@daisy-ai/contracts": "*",
+    "markdown-it": "^15.0.3",
+    "toqr": "0.1.1"
+  },
+  "peerDependenciesMeta": {
+    "expo-document-picker": {
+      "optional": true
+    },
+    "expo-file-system": {
+      "optional": true
+    },
+    "expo-sharing": {
+      "optional": true
+    },
+    "react-native-webview": {
+      "optional": true
+    },
+    "react-native-svg": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  }
+}

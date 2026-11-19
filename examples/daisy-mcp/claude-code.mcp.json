@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "daisy": {
+      "type": "stdio",
+      "command": "daisy-mcp",
+      "args": ["serve", "--agent-name", "我的 Claude Code"]
+    }
+  }
+}

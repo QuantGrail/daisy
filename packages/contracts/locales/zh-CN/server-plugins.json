@@ -1,0 +1,12 @@
+{
+  "server-plugins.badConfig": "配置里的 plugins 应是名字列表或对象",
+  "server-plugins.badName": "插件名「{name}」不合法：写短名（小写字母、数字和连字符，字母开头，最长 40 个字符，指 {scope}/<短名>），或完整的 npm 包名（带作用域的 @作用域/名字，不带作用域的写成 npm:名字）（DAISY_PLUGINS 或配置里的 plugins）",
+  "server-plugins.kindsNotList": "notificationKinds 必须是一个列表",
+  "server-plugins.noRunnerExport": "插件「{name}」没有 Runner 端（{pkg} 没有导出 ./{side}）",
+  "server-plugins.noRunnerSide": "插件「{name}」没有 Runner 端（缺少 createRunnerPlugin）",
+  "server-plugins.noServerExport": "插件「{name}」没有控制面端（{pkg} 没有导出 ./{side}）",
+  "server-plugins.noServerSide": "插件「{name}」没有控制面端（缺少 createServerPlugin）",
+  "server-plugins.notInstalled": "插件「{name}」没有安装（找不到 {pkg}）",
+  "server-plugins.pluginError": "插件「{name}」：{why}",
+  "server-plugins.wrongName": "插件「{name}」报的名字是「{got}」"
+}

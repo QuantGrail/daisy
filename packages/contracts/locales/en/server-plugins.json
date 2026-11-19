@@ -1,0 +1,12 @@
+{
+  "server-plugins.badConfig": "plugins in the settings must be a list of names or an object",
+  "server-plugins.badName": "The plugin name “{name}” is not valid: write a short name (lower-case letters, digits and hyphens, starting with a letter, at most 40 characters, meaning {scope}/<short name>), or a full npm package name (a scoped one as @scope/name, an unscoped one as npm:name) (DAISY_PLUGINS or plugins in the settings)",
+  "server-plugins.kindsNotList": "notificationKinds must be a list",
+  "server-plugins.noRunnerExport": "The plugin “{name}” has no Runner side ({pkg} does not export ./{side})",
+  "server-plugins.noRunnerSide": "The plugin “{name}” has no Runner side (createRunnerPlugin is missing)",
+  "server-plugins.noServerExport": "The plugin “{name}” has no control-plane side ({pkg} does not export ./{side})",
+  "server-plugins.noServerSide": "The plugin “{name}” has no control-plane side (createServerPlugin is missing)",
+  "server-plugins.notInstalled": "The plugin “{name}” is not installed ({pkg} is not found)",
+  "server-plugins.pluginError": "Plugin “{name}”: {why}",
+  "server-plugins.wrongName": "The plugin “{name}” says its name is “{got}”"
+}

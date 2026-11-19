@@ -1,0 +1,18 @@
+{
+  "prompt-native.label.agents": "发现智能体",
+  "prompt-native.label.bash": "后台命令",
+  "prompt-native.label.call_agent": "调用智能体",
+  "prompt-native.label.call_result": "查询调用结果",
+  "prompt-native.label.cancel": "取消后台",
+  "prompt-native.label.cron": "定时任务",
+  "prompt-native.label.monitor": "后台监视",
+  "prompt-native.label.output": "读后台输出",
+  "prompt-native.label.say": "对人说话",
+  "prompt-native.label.schedules": "查看后台",
+  "prompt-native.label.wakeup": "定时唤醒",
+  "prompt-native.listSep": "、",
+  "prompt-native.missing.maybe": "【这段对话可能缺少的 Daisy 工具】这段对话（Codex 线程）开始于较早的 Daisy 版本，可能没有这些工具：{names}。以你实际能调用的工具为准：没有就如实说，不要假装调用；主人需要这些功能时，告诉他输入 /new 开一段新对话（新对话里有，这段对话会保留）。",
+  "prompt-native.missing.sure": "【这段对话缺少的 Daisy 工具】这段对话（Codex 线程）开始时没有这些工具，之后也加不进来：{names}。不要假装调用它们，也不要说已经调用了；主人需要这些功能时，告诉他输入 /new 开一段新对话（新对话里有，这段对话会保留）。",
+  "prompt-native.notice.maybe": "这段对话开始于较早的 Daisy 版本，当时没有记下它带了哪些工具，它可能没有：{names}。Codex 不能给已经开始的对话添加工具；如果 AI 说找不到这些工具，输入 /new 开一段新对话，新对话里就有（这段对话会保留）。",
+  "prompt-native.notice.sure": "这段对话开始时还没有 Daisy 的这些工具：{names}。Codex 不能给已经开始的对话添加工具，所以这里的 AI 用不了它们。需要时输入 /new 开一段新对话，新对话里就有（这段对话会保留）。"
+}

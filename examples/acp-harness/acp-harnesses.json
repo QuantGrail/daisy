@@ -1,0 +1,14 @@
+[
+  {
+    "id": "gemini",
+    "name": "Gemini CLI",
+    "short": "Gemini",
+    "letter": "G",
+    "color": "#4285f4",
+    "description": "通过 ACP 接入 Gemini CLI（gemini --experimental-acp）。",
+    "launch": { "command": "gemini", "args": ["--experimental-acp"] },
+    "versionArgs": ["--version"],
+    "install": "按 Gemini CLI 官方说明安装（npm install -g @google/gemini-cli）",
+    "loginHint": "在本机终端运行 gemini 登录一次"
+  }
+]

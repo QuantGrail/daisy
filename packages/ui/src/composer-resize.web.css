@@ -1,0 +1,22 @@
+/* The composer's drag bar (composer-resize.web.tsx, which sets its geometry
+   inline): the 4 px pill widens and takes the accent on hover, focus and
+   while dragging. */
+.daisy-composer-resize:hover {
+  --composer-bar-width: 64px;
+  --composer-bar-now: color-mix(
+    in srgb,
+    var(--composer-bar-accent, #4f46e5) 60%,
+    transparent
+  );
+}
+.daisy-composer-resize:focus-visible,
+.daisy-composer-resize.is-dragging {
+  --composer-bar-width: 64px;
+  --composer-bar-now: var(--composer-bar-accent, #4f46e5);
+}
+/* While dragging (with html.daisy-resizing, resizable.web.css: nothing gets
+   selected, iframes take no events): the whole page shows ns-resize. */
+html.daisy-resizing.daisy-resizing-row,
+html.daisy-resizing.daisy-resizing-row * {
+  cursor: ns-resize !important;
+}

@@ -1,0 +1,19 @@
+{
+  "prompt-carry.alreadyThere": "新身份里已有这段对话",
+  "prompt-carry.badId": "会话 ID 无效",
+  "prompt-carry.extraLinks": "对话的附属文件有多个硬链接，已拒绝",
+  "prompt-carry.noOldDir": "旧身份的配置目录不存在",
+  "prompt-carry.notFound": "旧身份里找不到这段对话的记录",
+  "prompt-carry.notOwned": "{what}不属于执行节点的用户，已拒绝",
+  "prompt-carry.notPlainDir": "{what}不是普通目录（可能是符号链接），已拒绝",
+  "prompt-carry.sameDir": "同一个配置目录",
+  "prompt-carry.sameRecords": "新身份里已是同样的对话记录",
+  "prompt-carry.tooBig": "这段对话要搬的记录有 {size} MiB，超过 {limit} MiB 的上限，没有带到新身份",
+  "prompt-carry.tooDeep": "对话的附属目录层级过深，已拒绝",
+  "prompt-carry.transcriptLink": "对话记录是符号链接，已拒绝",
+  "prompt-carry.transcriptNotFile": "对话记录不是普通文件或有多个硬链接，已拒绝",
+  "prompt-carry.what.configDir": "配置目录",
+  "prompt-carry.what.dir": "目录 {name} ",
+  "prompt-carry.what.extraDir": "对话的附属目录",
+  "prompt-carry.what.projects": "旧身份的 projects "
+}

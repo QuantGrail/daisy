@@ -1,0 +1,287 @@
+{
+  "ordinary:claude": {
+    "argv": [
+      "-p",
+      "--verbose",
+      "--input-format",
+      "stream-json",
+      "--output-format",
+      "stream-json",
+      "--include-partial-messages",
+      "--forward-subagent-text",
+      "--replay-user-messages",
+      "--include-hook-events",
+      "--disallowed-tools",
+      "ScheduleWakeup,CronCreate,CronDelete,CronList",
+      "--allowedTools",
+      "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result",
+      "--permission-mode",
+      "manual",
+      "--permission-prompt-tool",
+      "stdio",
+      "--session-id",
+      "<UUID>"
+    ],
+    "initialize": {
+      "via": "initialize",
+      "text": "【Daisy 定时与后台】要过一会儿再继续、定期检查或等长命令跑完时，不要 sleep / 空等 / 轮询：用 mcp__daisy__wakeup（一次）或 mcp__daisy__cron（周期）定时唤醒自己，用 mcp__daisy__bash（结束时唤醒）或 mcp__daisy__monitor（有新输出就唤醒）在后台跑命令，mcp__daisy__schedules 查看、mcp__daisy__cancel 取消。这些由 Daisy 保存，Runner 重启或你下线后照样唤醒你；启动后本轮可以先结束。",
+      "sdkMcpServers": [
+        "daisy"
+      ],
+      "allowedTools": "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result"
+    },
+    "firstTurn": "第一条：看一下当前目录。\n同一工作区可能有其他会话在并行：改同一文件前先协调；独立的改动用独立 Git worktree，临时文件放 TMPDIR；要并行改代码就请本人另开独立开发会话，由任务负责人合入。"
+  },
+  "ordinary:codex": {
+    "argv": [
+      "app-server"
+    ],
+    "thread": {
+      "via": "thread/start",
+      "text": "",
+      "approvalPolicy": "on-request",
+      "approvalsReviewer": "user",
+      "sandbox": "workspace-write",
+      "dynamicTools": [
+        "daisy_wakeup",
+        "daisy_cron",
+        "daisy_bash",
+        "daisy_monitor",
+        "daisy_output",
+        "daisy_schedules",
+        "daisy_cancel",
+        "daisy_agents",
+        "daisy_call_agent",
+        "daisy_call_result"
+      ],
+      "developerInstructions": "【Daisy 定时与后台】要过一会儿再继续、定期检查或等长命令跑完时，不要 sleep / 空等 / 轮询：用 daisy_wakeup（一次）或 daisy_cron（周期）定时唤醒自己，用 daisy_bash（结束时唤醒）或 daisy_monitor（有新输出就唤醒）在后台跑命令，daisy_schedules 查看、daisy_cancel 取消。这些由 Daisy 保存，Runner 重启或你下线后照样唤醒你；启动后本轮可以先结束。"
+    },
+    "firstTurn": "第一条：看一下当前目录。\n同一工作区可能有其他会话在并行：改同一文件前先协调；独立的改动用独立 Git worktree，临时文件放 TMPDIR；要并行改代码就请本人另开独立开发会话，由任务负责人合入。"
+  },
+  "second-turn:claude": {
+    "argv": [],
+    "initialize": [],
+    "turns": [
+      "第二条：再看一眼。\n同一工作区可能有其他会话在并行：改同一文件前先协调；独立的改动用独立 Git worktree，临时文件放 TMPDIR；要并行改代码就请本人另开独立开发会话，由任务负责人合入。"
+    ]
+  },
+  "second-turn:codex": {
+    "argv": [],
+    "thread": [],
+    "turns": [
+      "第二条：再看一眼。\n同一工作区可能有其他会话在并行：改同一文件前先协调；独立的改动用独立 Git worktree，临时文件放 TMPDIR；要并行改代码就请本人另开独立开发会话，由任务负责人合入。"
+    ]
+  },
+  "resumed:claude": {
+    "argv": [
+      [
+        "-p",
+        "--verbose",
+        "--input-format",
+        "stream-json",
+        "--output-format",
+        "stream-json",
+        "--include-partial-messages",
+        "--forward-subagent-text",
+        "--replay-user-messages",
+        "--include-hook-events",
+        "--disallowed-tools",
+        "ScheduleWakeup,CronCreate,CronDelete,CronList",
+        "--allowedTools",
+        "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result",
+        "--permission-mode",
+        "manual",
+        "--permission-prompt-tool",
+        "stdio",
+        "--resume",
+        "claude-native"
+      ]
+    ],
+    "initialize": [
+      {
+        "via": "initialize",
+        "text": "【Daisy 定时与后台】要过一会儿再继续、定期检查或等长命令跑完时，不要 sleep / 空等 / 轮询：用 mcp__daisy__wakeup（一次）或 mcp__daisy__cron（周期）定时唤醒自己，用 mcp__daisy__bash（结束时唤醒）或 mcp__daisy__monitor（有新输出就唤醒）在后台跑命令，mcp__daisy__schedules 查看、mcp__daisy__cancel 取消。这些由 Daisy 保存，Runner 重启或你下线后照样唤醒你；启动后本轮可以先结束。",
+        "sdkMcpServers": [
+          "daisy"
+        ],
+        "allowedTools": "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result"
+      }
+    ],
+    "turns": [
+      "第三条：接着来。\n同一工作区可能有其他会话在并行：改同一文件前先协调；独立的改动用独立 Git worktree，临时文件放 TMPDIR；要并行改代码就请本人另开独立开发会话，由任务负责人合入。"
+    ]
+  },
+  "resumed:codex": {
+    "argv": [
+      [
+        "app-server"
+      ]
+    ],
+    "thread": [
+      {
+        "via": "thread/resume",
+        "text": "",
+        "approvalPolicy": "on-request",
+        "approvalsReviewer": "user",
+        "sandbox": "workspace-write",
+        "excludeTurns": true,
+        "dynamicTools": [],
+        "developerInstructions": "【Daisy 定时与后台】要过一会儿再继续、定期检查或等长命令跑完时，不要 sleep / 空等 / 轮询：用 daisy_wakeup（一次）或 daisy_cron（周期）定时唤醒自己，用 daisy_bash（结束时唤醒）或 daisy_monitor（有新输出就唤醒）在后台跑命令，daisy_schedules 查看、daisy_cancel 取消。这些由 Daisy 保存，Runner 重启或你下线后照样唤醒你；启动后本轮可以先结束。",
+        "threadId": "codex-native"
+      }
+    ],
+    "turns": [
+      "第三条：接着来。\n同一工作区可能有其他会话在并行：改同一文件前先协调；独立的改动用独立 Git worktree，临时文件放 TMPDIR；要并行改代码就请本人另开独立开发会话，由任务负责人合入。"
+    ]
+  },
+  "isolated:claude": {
+    "argv": [
+      [
+        "-p",
+        "--verbose",
+        "--input-format",
+        "stream-json",
+        "--output-format",
+        "stream-json",
+        "--include-partial-messages",
+        "--forward-subagent-text",
+        "--replay-user-messages",
+        "--include-hook-events",
+        "--disallowed-tools",
+        "ScheduleWakeup,CronCreate,CronDelete,CronList",
+        "--allowedTools",
+        "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result",
+        "--permission-mode",
+        "manual",
+        "--permission-prompt-tool",
+        "stdio",
+        "--session-id",
+        "<UUID>"
+      ]
+    ],
+    "initialize": [
+      {
+        "via": "initialize",
+        "text": "【Daisy 定时与后台】要过一会儿再继续、定期检查或等长命令跑完时，不要 sleep / 空等 / 轮询：用 mcp__daisy__wakeup（一次）或 mcp__daisy__cron（周期）定时唤醒自己，用 mcp__daisy__bash（结束时唤醒）或 mcp__daisy__monitor（有新输出就唤醒）在后台跑命令，mcp__daisy__schedules 查看、mcp__daisy__cancel 取消。这些由 Daisy 保存，Runner 重启或你下线后照样唤醒你；启动后本轮可以先结束。",
+        "sdkMcpServers": [
+          "daisy"
+        ],
+        "allowedTools": "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result"
+      }
+    ],
+    "turns": [
+      "第一条：看一下当前目录。\n你在独立分支 daisy/<UUID>、工作目录 <DIR>/.git/daisy-worktrees/<UUID>。保留交付物与验证证据，由任务负责人审查合入；不自动合并或删除。"
+    ]
+  },
+  "isolated:codex": {
+    "argv": [
+      [
+        "app-server"
+      ]
+    ],
+    "thread": [
+      {
+        "via": "thread/start",
+        "text": "",
+        "approvalPolicy": "on-request",
+        "approvalsReviewer": "user",
+        "sandbox": "workspace-write",
+        "dynamicTools": [
+          "daisy_wakeup",
+          "daisy_cron",
+          "daisy_bash",
+          "daisy_monitor",
+          "daisy_output",
+          "daisy_schedules",
+          "daisy_cancel",
+          "daisy_agents",
+          "daisy_call_agent",
+          "daisy_call_result"
+        ],
+        "developerInstructions": "【Daisy 定时与后台】要过一会儿再继续、定期检查或等长命令跑完时，不要 sleep / 空等 / 轮询：用 daisy_wakeup（一次）或 daisy_cron（周期）定时唤醒自己，用 daisy_bash（结束时唤醒）或 daisy_monitor（有新输出就唤醒）在后台跑命令，daisy_schedules 查看、daisy_cancel 取消。这些由 Daisy 保存，Runner 重启或你下线后照样唤醒你；启动后本轮可以先结束。"
+      }
+    ],
+    "turns": [
+      "第一条：看一下当前目录。\n你在独立分支 daisy/<UUID>、工作目录 <DIR>/.git/daisy-worktrees/<UUID>。保留交付物与验证证据，由任务负责人审查合入；不自动合并或删除。"
+    ]
+  },
+  "read-only:claude": {
+    "argv": [
+      [
+        "-p",
+        "--verbose",
+        "--input-format",
+        "stream-json",
+        "--output-format",
+        "stream-json",
+        "--include-partial-messages",
+        "--forward-subagent-text",
+        "--replay-user-messages",
+        "--include-hook-events",
+        "--disallowed-tools",
+        "ScheduleWakeup,CronCreate,CronDelete,CronList",
+        "--allowedTools",
+        "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result",
+        "--permission-mode",
+        "manual",
+        "--permission-prompt-tool",
+        "stdio",
+        "--session-id",
+        "<UUID>"
+      ]
+    ],
+    "initialize": [
+      {
+        "via": "initialize",
+        "text": "【Daisy 定时与后台】要过一会儿再继续、定期检查或等长命令跑完时，不要 sleep / 空等 / 轮询：用 mcp__daisy__wakeup（一次）或 mcp__daisy__cron（周期）定时唤醒自己，用 mcp__daisy__bash（结束时唤醒）或 mcp__daisy__monitor（有新输出就唤醒）在后台跑命令，mcp__daisy__schedules 查看、mcp__daisy__cancel 取消。这些由 Daisy 保存，Runner 重启或你下线后照样唤醒你；启动后本轮可以先结束。",
+        "sdkMcpServers": [
+          "daisy"
+        ],
+        "allowedTools": "mcp__daisy__wakeup,mcp__daisy__cron,mcp__daisy__output,mcp__daisy__schedules,mcp__daisy__cancel,mcp__daisy__agents,mcp__daisy__call_result"
+      }
+    ],
+    "turns": [
+      "第一条：看一下当前目录。\n本会话为强制只读分析，源文件不可写；临时文件请使用 TMPDIR。需要改代码时由主人创建独立开发会话。"
+    ]
+  },
+  "read-only:codex": {
+    "argv": [
+      [
+        "app-server"
+      ]
+    ],
+    "thread": [
+      {
+        "via": "thread/start",
+        "text": "",
+        "approvalPolicy": "on-request",
+        "approvalsReviewer": "user",
+        "sandbox": "workspace-write",
+        "dynamicTools": [
+          "daisy_wakeup",
+          "daisy_cron",
+          "daisy_bash",
+          "daisy_monitor",
+          "daisy_output",
+          "daisy_schedules",
+          "daisy_cancel",
+          "daisy_agents",
+          "daisy_call_agent",
+          "daisy_call_result"
+        ],
+        "developerInstructions": "【Daisy 定时与后台】要过一会儿再继续、定期检查或等长命令跑完时，不要 sleep / 空等 / 轮询：用 daisy_wakeup（一次）或 daisy_cron（周期）定时唤醒自己，用 daisy_bash（结束时唤醒）或 daisy_monitor（有新输出就唤醒）在后台跑命令，daisy_schedules 查看、daisy_cancel 取消。这些由 Daisy 保存，Runner 重启或你下线后照样唤醒你；启动后本轮可以先结束。"
+      }
+    ],
+    "turns": [
+      "第一条：看一下当前目录。\n本会话为强制只读分析，源文件不可写；临时文件请使用 TMPDIR。需要改代码时由主人创建独立开发会话。"
+    ]
+  },
+  "audit-items": {
+    "发送内容审计 {images,pageContextIncluded,role,sha256,systemPromptOverride,taskIncluded,terminalIncluded}": 10
+  },
+  "sync-fields": [
+    "blocked",
+    "ok",
+    "retiredIdentities"
+  ]
+}

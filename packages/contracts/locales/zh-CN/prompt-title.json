@@ -1,0 +1,9 @@
+{
+  "prompt-title.code": "[代码{lang}]",
+  "prompt-title.namer": "你是命名助手：按用户消息里的要求，只输出一个简短名称（一行），不调用工具，不解释，不加引号。",
+  "prompt-title.noReply": "（无文字回复）",
+  "prompt-title.noText": "（无文字）",
+  "prompt-title.rule.chinese": "3. 这段会话的用户用中文写：标题用中文，4 到 14 个字（专有名词保留原文）。",
+  "prompt-title.rule.english": "3. 这段会话的用户用英文写：标题必须是英文，不超过 6 个词，不要译成中文（English title, at most 6 words）。",
+  "prompt-title.untitled": "新对话"
+}

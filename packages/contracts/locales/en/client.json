@@ -1,0 +1,13 @@
+{
+  "client.connections.exists": "There is already a connection named {id}",
+  "client.connections.idMissing": "Every connection needs an id",
+  "client.connections.notFound": "No connection named {id}",
+  "client.error.attachmentFailed": "Could not read the attachment",
+  "client.error.filesystemFailed": "The directory operation failed",
+  "client.error.invalidResponse": "The service gave an invalid answer; check the service address",
+  "client.error.noCredential": "credentials() gave no credential",
+  "client.error.nodeTimeout": "The node did not answer in time; check the connection and try again",
+  "client.error.timeout": "The request timed out (no answer in {s, plural, one {# second} other {# seconds}}): the service may be restarting or stuck; try again later",
+  "client.live.noPong": "The connection does not answer",
+  "client.live.offline": "The network is down"
+}

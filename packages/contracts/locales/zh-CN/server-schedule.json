@@ -1,0 +1,19 @@
+{
+  "server-schedule.bg.canceled": "已取消",
+  "server-schedule.bg.linesDropped": "（前 {n} 行省略）",
+  "server-schedule.bg.logCapped": "[{product}：输出超过 {mb} MB，之后不再写入文件]",
+  "server-schedule.bg.nodeFull": "这台执行节点上已有 {n} 个后台命令 / 监视（本节点最多 {max} 个）：等一些结束后再启动",
+  "server-schedule.bg.runnerGone": "Runner 已停止",
+  "server-schedule.bg.runnerStopped": "执行节点的 Runner 已停止，这个后台任务随之结束（没有自动重跑）",
+  "server-schedule.bg.startFailed": "启动失败：{error}",
+  "server-schedule.bg.timedOut": "超时（{s} 秒）已停止",
+  "server-schedule.callback.badItem": "外部回调的条目编号「{item}」不合法（字母或数字开头，只用字母、数字、_、.、-，最多 64 个字符）",
+  "server-schedule.callback.badKind": "外部回调的类别「{kind}」不合法（小写字母开头，只用小写字母、数字、_、-，最多 32 个字符）",
+  "server-schedule.error.offline": "会话已下线",
+  "server-schedule.error.ownerOnly": "只有会话主人可以停止后台任务",
+  "server-schedule.error.taskGone": "没有这个后台任务（可能已经结束）",
+  "server-schedule.error.taskGoneOrOffline": "没有这个后台任务（可能已经结束，或会话已下线）",
+  "server-schedule.error.taskNotStoppable": "这个后台任务不能单独停止（Agent 不支持），可以用「下线」结束全部",
+  "server-schedule.error.timerNotStoppable": "定时器不能在这里停止",
+  "server-schedule.stoppedByOwner": "主人在「后台」里停止了它"
+}
